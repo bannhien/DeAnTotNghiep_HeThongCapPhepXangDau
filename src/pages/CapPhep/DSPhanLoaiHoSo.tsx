@@ -28,8 +28,10 @@ const DSPhanLoaiHoSo = () => {
             <label className="text-sm font-bold text-gray-800 w-20 text-right">Loại thủ tục</label>
             <select className="flex-1 border border-gray-400 rounded p-1.5 focus:outline-none focus:border-blue-500 text-sm bg-white">
               <option></option>
+              <option>Cấp lại</option>
               <option>Cấp mới</option>
               <option>Cấp sửa đổi bổ sung</option>
+
             </select>
           </div>
           <div className="flex items-center gap-3">

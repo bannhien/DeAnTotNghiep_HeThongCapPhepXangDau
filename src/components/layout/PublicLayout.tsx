@@ -14,12 +14,13 @@ const PublicLayout = () => {
       
       {/* ================= HEADER ================= */}
       <header className="h-[100px] bg-[#FFC000] flex items-center justify-between px-10 shadow-sm z-30 flex-shrink-0">
-        {/* Bấm vào Logo Sở cũng sẽ quay về Trang chủ */}
-        <Link to="/trang-chu-dvc" className="hover:opacity-90 transition-opacity">
+        
+        {/* CHỈNH SỬA TẠI ĐÂY: Thay '/trang-chu-dvc' bằng '/' */}
+        <Link to="/" className="hover:opacity-90 transition-opacity" title="Quay về trang chủ hệ thống">
           <img 
             src={logoSCT} 
             alt="Sở Công Thương" 
-            className="h-[75px] w-auto object-contain" 
+            className="h-[75px] w-auto object-contain cursor-pointer" 
           />
         </Link>
 

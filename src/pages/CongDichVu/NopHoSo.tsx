@@ -56,6 +56,7 @@ const NopHoSo = () => {
                 <option></option>
                 <option>Cấp mới</option>
                 <option>Cấp lại</option>
+                <option>Cấp sửa đổi bổ sung</option>
               </select>
             </div>
 
@@ -71,9 +72,12 @@ const NopHoSo = () => {
             <div className="flex items-center gap-3">
               <label className="text-sm text-gray-700 w-24 text-right">Phường/<br/>Xã</label>
               <select className="flex-1 border border-gray-400 rounded-md p-1.5 focus:outline-none focus:border-blue-500 text-sm bg-white">
-                <option></option>
-                <option>Hải Châu 1</option>
-                <option>Thạch Thang</option>
+                <option>Hoà Cường</option>
+                <option>Hải Châu</option>
+                <option>Thanh Khê</option>
+                <option>Sơn Trà</option>
+                <option>An Hải</option>
+                <option>Ngũ Hành Sơn</option>
               </select>
             </div>
           </div>
