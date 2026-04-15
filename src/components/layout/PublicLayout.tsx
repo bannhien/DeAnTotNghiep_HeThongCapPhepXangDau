@@ -15,8 +15,8 @@ const PublicLayout = () => {
       {/* ================= HEADER ================= */}
       <header className="h-[100px] bg-[#FFC000] flex items-center justify-between px-10 shadow-sm z-30 flex-shrink-0">
         
-        {/* CHỈNH SỬA TẠI ĐÂY: Thay '/trang-chu-dvc' bằng '/' */}
-        <Link to="/" className="hover:opacity-90 transition-opacity" title="Quay về trang chủ hệ thống">
+        {/* ĐÃ SỬA: Đổi to="/" để quay về Landing Page và gán src={logoSCT} */}
+        <Link to="/" className="hover:opacity-90 transition-opacity" title="Quay về Trang chủ">
           <img 
             src={logoSCT} 
             alt="Sở Công Thương" 
@@ -40,7 +40,6 @@ const PublicLayout = () => {
         {/* SIDEBAR BÊN TRÁI */}
         <aside className="w-[280px] bg-transparent flex flex-col pt-10 flex-shrink-0">
           
-          {/* TIÊU ĐỀ CLICK ĐƯỢC ĐỂ VỀ TRANG CHỦ */}
           <div className="px-8 mb-8">
             <Link to="/trang-chu-dvc" className="block group">
               <h2 className="text-2xl font-bold leading-tight uppercase group-hover:text-blue-800 transition-colors">
