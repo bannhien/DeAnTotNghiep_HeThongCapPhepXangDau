@@ -1,14 +1,9 @@
 import React, { useState } from 'react';
-import { FileUp, CheckCircle2, XCircle, X } from 'lucide-react';
+import { FileUp, CheckCircle2, X } from 'lucide-react';
 
 const BoSungHoSo = () => {
-  // Quản lý trạng thái hiển thị Popup: 'none' | 'success' | 'error'
-  const [popupState, setPopupState] = useState<'none' | 'success' | 'error'>('none');
-
-  // Hàm giả lập kiểm tra (Hiển thị popup lỗi file PDF)
-  const handleCheck = () => {
-    setPopupState('error');
-  };
+  // Quản lý trạng thái hiển thị Popup: 'none' | 'success'
+  const [popupState, setPopupState] = useState<'none' | 'success'>('none');
 
   // Hàm giả lập nộp hồ sơ bổ sung (Hiển thị popup thành công)
   const handleSubmit = (e: React.FormEvent) => {
@@ -26,15 +21,8 @@ const BoSungHoSo = () => {
         
         {/* ================= 1. Thông tin doanh nghiệp ================= */}
         <section>
-          <div className="flex justify-between items-center mb-4">
+          <div className="mb-4">
             <h2 className="font-bold text-gray-800">1. Thông tin doanh nghiệp</h2>
-            <button 
-              type="button" 
-              onClick={handleCheck} // Bấm vào đây để test Pop-up Lỗi
-              className="bg-[#4CAF50] hover:bg-green-600 text-white text-sm px-6 py-1.5 rounded transition-colors"
-            >
-              Kiểm tra
-            </button>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
@@ -121,7 +109,7 @@ const BoSungHoSo = () => {
               </div>
             </div>
 
-            {/* File 3 (Đang bị highlight lỗi trong suy nghĩ của người dùng) */}
+            {/* File 3 */}
             <div className="flex items-center gap-3">
               <label className="text-sm font-semibold text-gray-700 w-36 text-right leading-tight">Giấy chứng nhận<br/>PCCC</label>
               <div className="flex-1 border border-gray-400 rounded-full px-3 py-1.5 flex items-center gap-2 cursor-pointer bg-gray-50 hover:bg-gray-100">
@@ -145,7 +133,7 @@ const BoSungHoSo = () => {
         {/* ================= Nút Action ================= */}
         <div className="flex justify-end gap-6 pt-6">
           <button 
-            type="submit" // Bấm vào đây để test Pop-up Thành công
+            type="submit" 
             className="bg-[#4CAF50] hover:bg-green-600 text-white px-10 py-2 rounded transition-colors text-sm font-medium"
           >
             Nộp hồ sơ
@@ -158,28 +146,6 @@ const BoSungHoSo = () => {
           </button>
         </div>
       </form>
-
-      {/* ================= POP-UP LỖI (FILE KHÔNG HỢP LỆ) ================= */}
-      {popupState === 'error' && (
-        <div className="absolute inset-0 z-50 flex items-center justify-center bg-black/20 backdrop-blur-[1px] rounded-xl">
-          <div className="bg-white rounded-xl shadow-2xl p-6 w-[350px] flex flex-col items-center text-center relative border border-gray-200">
-            <button onClick={() => setPopupState('none')} className="absolute top-3 right-3 text-gray-400 hover:text-gray-600">
-              <X size={20} />
-            </button>
-            <XCircle size={50} className="text-red-500 mb-4" strokeWidth={1.5} />
-            <h3 className="font-bold text-lg mb-2">Bổ sung hồ sơ không hợp lệ!</h3>
-            <p className="text-sm text-gray-600 mb-6 px-2">
-              Tệp đính kèm ở mục Giấy chứng nhận PCCC không đúng định dạng. Vui lòng chỉ tải lên tệp PDF.
-            </p>
-            <button 
-              onClick={() => setPopupState('none')}
-              className="bg-[#4CAF50] hover:bg-green-600 text-white px-8 py-1.5 rounded transition-colors text-sm"
-            >
-              Đóng
-            </button>
-          </div>
-        </div>
-      )}
 
       {/* ================= POP-UP THÀNH CÔNG ================= */}
       {popupState === 'success' && (
