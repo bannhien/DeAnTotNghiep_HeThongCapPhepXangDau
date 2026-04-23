@@ -135,36 +135,42 @@ const ThamDinhThucTe = () => {
           <div className="flex items-center gap-4 bg-gray-100 p-2 rounded border border-gray-300">
             <span className="text-xs font-bold text-gray-700 w-24">Địa chỉ cây xăng:</span>
             <div className="flex-1 relative">
-              <input type="text" defaultValue="197 Cách Mạng Tháng 8, Khuê Trung, Đà Nẵng" className="w-full border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none" />
+              <input type="text" defaultValue="197 Cách Mạng Tháng 8, Khuê Trung, Cẩm Lệ, Đà Nẵng" className="w-full border border-gray-300 rounded px-2 py-1 text-sm focus:outline-none bg-white" readOnly />
             </div>
-            <button className="bg-white border border-gray-300 rounded px-3 py-1 text-xs font-semibold text-gray-600 hover:bg-gray-50">Tìm kiếm</button>
+            <button className="bg-white border border-gray-300 rounded px-3 py-1 text-xs font-semibold text-gray-600 hover:bg-gray-50 transition-colors">Tìm kiếm</button>
           </div>
 
-          {/* KHU VỰC BẢN ĐỒ GOOGLE MAPS BẰNG IFRAME (ĐÃ FIX LINK BẢN ĐỒ ĐÀ NẴNG THẬT) */}
-          <div className="flex-1 border border-gray-400 rounded-md relative overflow-hidden bg-gray-100">
+          {/* KHU VỰC BẢN ĐỒ GOOGLE MAPS BẰNG IFRAME (ĐÃ FIX LINK ĐỊA CHỈ THẬT) */}
+          <div className="flex-1 border border-gray-400 rounded-md relative overflow-hidden bg-gray-100 group">
             
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3833.9161746401625!2d108.209673315362!3d16.031580988904!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219edbaab56b3%3A0xc3b44b7bc56598c1!2zMTk3IEPDoWNoIE3huqFuZyBUaMOhbmcgOCwgS2h1w6ogVHJ1bmcsIEPhuqltIEzhu4csIMSQw6AgTuG6tW5n!5e0!3m2!1svi!2s!4v1689000000000!5m2!1svi!2s" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0 }} 
-              allowFullScreen={false} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
+            {/* KHU VỰC BẢN ĐỒ GOOGLE MAPS BẰNG IFRAME ĐÃ FIX LỖI */}
+          <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3834.629731671239!2d108.20573931485802!3d16.03277798890288!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x314219927976906f%3A0x6b24bc99bc7b2520!2zQ-G7rWEgSMOgbmcgWMSDbmcgROG6p3UgU-G7kSAyMQ!5e0!3m2!1svi!2s!4v1700000000000!5m2!1svi!2s" 
+            className="w-full h-full"
+            style={{ border: 0 }} 
+            allowFullScreen={false} 
+            loading="lazy" 
+            referrerPolicy="no-referrer-when-downgrade"
+          ></iframe>
             
-            {/* Lớp phủ nhỏ mô phỏng tọa độ GPS */}
-            <div className="absolute top-2 left-2 z-10 pointer-events-none">
-               <button className="bg-white/90 text-[11px] px-3 py-1 rounded border border-gray-400 font-bold shadow-sm">
+            {/* Lớp phủ nhỏ mô phỏng nút Lấy tọa độ GPS */}
+            <div className="absolute top-3 left-3 z-10">
+               <button className="bg-white/95 text-[11px] px-3 py-1.5 rounded shadow-md border border-gray-300 font-bold text-gray-700 flex items-center gap-1.5 hover:bg-gray-50 transition-colors">
+                 <MapPin size={12} className="text-red-500"/>
                  Lấy toạ độ GPS thực tế
                </button>
+            </div>
+
+            {/* Điểm ghim mô phỏng (MapPin) trỏ ngay giữa màn hình */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none drop-shadow-lg">
+                <MapPin size={36} className="text-red-600 fill-red-500" strokeWidth={1.5} />
             </div>
           </div>
 
           {/* Upload Hình ảnh hiện trường */}
           <div className="flex items-center gap-4 border-t border-gray-200 pt-4">
             <span className="text-[13px] font-bold text-gray-800 w-32">Hình ảnh hiện trường:</span>
-            <div className="flex-1 border border-gray-400 rounded px-3 py-1.5 flex items-center gap-2 cursor-pointer bg-gray-50 hover:bg-gray-100">
+            <div className="flex-1 border border-gray-400 rounded px-3 py-1.5 flex items-center gap-2 cursor-pointer bg-gray-50 hover:bg-gray-100 transition-colors">
               <FileImage size={14} className="text-gray-500" />
               <span className="text-[11px] text-gray-400 italic">Đính kèm hình ảnh thực tế (jpg, png...)</span>
             </div>
